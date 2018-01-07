@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lucky 7</title>
+    <link href="base.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div class="game-type-container">
+            <table class="game-type">
+                <tbody>
+                <tr>
+                    {% for gameTypeCategory in games|keys %}
+                        <td data-game-type="{{ gameTypeCategory }}" {% if gameType == gameTypeCategory %}class="selected"{% endif %}
+                            data-category-number="{{ loop.index }}">
+                            {{ gameTypeCategory|capitalize ~ ' Games' }}
+                        </td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="overflow-games-container">
+            <div class="games-container">
+                {% for gameTypeCurr in games|keys %}
+                    <div class="games">
+                        {% for game in games[gameTypeCurr] %}
+                            <div class="game-container">
+                                <table class="game">
+                                    <thead>
+                                    <tr>
+                                        <td>
+                                            <div class="game-header">
+                                                {{ game['game_name'] }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="game-body" data-game-name="{{ game['game_name'] }}" data-game-code="{{ game['game_code'] }}"
+                                                 data-machine-id="{{ game['machine_id'] }}" data-hands="{{ game['hands'] }}"
+                                                 data-denominations="{{ game['denominations'] }}" data-background-image="{{ 'http://cacheimg.casinomidas.com/images/www/games/minipods/' ~ game['game_name']|alphanumericChars|lower ~ '-minipod.jpg' }}">
+                                                <div class="play-now">
+                                                    <div class="play-now-image">
+                                                        <img src="/images/play-button.png" />
+                                                    </div>
+                                                    <div class="play-now-text">
+                                                        Play now!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="/libs/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/libs/jquery/jquery.touchSwipe.min.js" type="text/javascript"></script>
+    <script src="/libs/turbolinks/turbolinks.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        // init variables
+        var numberOfCategories = {{ games|keys|length|json_encode|raw }},
+            categoryNumberFromRoute = {{ categoryNumberFromRoute|json_encode|raw }},
+            gamesPadding = 10;
+    </script>
+    <script src="/js/main.js" type="text/javascript"></script>
+</body>
+</html>

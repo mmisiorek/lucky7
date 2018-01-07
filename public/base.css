@@ -1,0 +1,195 @@
+body {
+    background: #66ff99;
+    font-family: "Arial";
+    font-size: 14px;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+table.game-type {
+    width: 100%;
+    border-collapse: collapse;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    background: lightgray;
+}
+
+table.game-type td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+table.game-type td.selected {
+    background: lightgoldenrodyellow;
+}
+
+table.game-type td:hover {
+    background: darkgray;
+    cursor: pointer;
+}
+
+table.game-type td.selected:hover {
+    background: lightgoldenrodyellow;
+    cursor: default;
+}
+
+div.game-type-container {
+    width: 98.5%;
+    margin-bottom: 30px;
+}
+
+div.container {
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: 100px;
+}
+
+div.game-container {
+    display: inline-block;
+    width: 30%;
+    margin-bottom: 40px;
+}
+
+
+@media screen and (min-width: 880px) {
+    div.game-container {
+        width: 30%;
+    }
+
+    div.game-container:nth-child(3n+1) {
+        padding-right: 2%;
+        padding-left: 0px;
+    }
+
+    div.game-container:nth-child(3n+2) {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    div.game-container:nth-child(3n) {
+        padding-right: 0px;
+        padding-left: 2%;
+    }
+}
+
+@media screen and (max-width: 880px) and (min-width: 660px) {
+    div.game-container {
+        width: 46%;
+    }
+
+    div.game-container:nth-child(2n+1) {
+        padding-right: 3%;
+        padding-left: 0%;
+    }
+
+    div.game-container:nth-child(2n) {
+        padding-left: 3%;
+        padding-right: 0%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    div.game-type-container {
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    table.game-type {
+        width: 460px;
+    }
+
+    div.game-container {
+        width: 100%;
+    }
+}
+
+table.game {
+    background: lightgray;
+    width: 100%;
+    max-height: 200px;
+    min-height: 120px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    -webkit-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+}
+
+table.game > thead > tr {
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    vertical-align: middle;
+    border-bottom: 1px solid black;
+}
+
+table.game > thead td {
+    margin: 5px;
+    height: 40px;
+}
+
+table.game div.game-header {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+table.game > tbody {
+    background-color: white;
+}
+
+table.game > tbody div.game-body {
+    width: 100%;
+    height: 100%;
+}
+
+table.game > tbody .game-body .play-now {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    bottom: 30px;
+    text-align: center;
+    display: none;
+}
+
+table.game > tbody td {
+    position: relative;
+    background-position: center;
+}
+
+table.game > tbody .game-body:hover {
+    cursor: pointer;
+}
+
+table.game > tbody .game-body .play-now .play-now-text {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    text-decoration: underline;
+}
+
+table.game > tbody .game-body .play-now .play-now-image {
+    padding-right: 15px;
+    display: table-cell;
+    text-align: right;
+}
+
+.games-container {
+    overflow-x: hidden;
+    display: table;
+    margin-left: -130%;
+}
+
+.games {
+    display: table-cell;
+}
+
+.overflow-games-container {
+    overflow: hidden;
+}
+
